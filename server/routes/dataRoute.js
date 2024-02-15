@@ -6,7 +6,7 @@ const Data=require('../models/data');
 //CREATE
 router.post("/create", async (req, res) => {
     try {
-        console.log(req.body);
+       
         const newData = new Data(req.body);
         const savedData = await newData.save();
         res.json(savedData);
