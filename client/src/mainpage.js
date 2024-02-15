@@ -79,7 +79,7 @@ const MainPage = () => {
         }
     };
     const fetchItemById = async ({ id }) => {
-        console.log(id);
+       
         if (!id) {
             setProductIDError("Product ID cannot be empty");
             return;
@@ -195,7 +195,7 @@ const MainPage = () => {
                     status: status ? status : "scanned"
                 });
 
-                console.log(response.data);
+               
 
                 // Optionally, you can fetch the updated data after creating
                 fetchData();
