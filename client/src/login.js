@@ -39,7 +39,7 @@ const Login = (props) => {
         }
         try {
             const result = await axios.post('/api/users/login', user);
-            console.log(result);            
+                   
             localStorage.setItem('currentUser',JSON.stringify(result));
             window.location.href='/mainpage'
         } catch (error) {
