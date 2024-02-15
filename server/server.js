@@ -9,7 +9,7 @@ const app = express();
 
 //middlewares
 const corsOptions ={
-  origin: "https://crudoperations-k5nc.onrender.com/"
+  origin: "https://crudoperations-k5nc.onrender.com"
 }
 
 const dbConfig = require('./DB');
