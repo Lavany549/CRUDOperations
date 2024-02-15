@@ -15,7 +15,7 @@ The application supports user registration and authentication to provide a perso
 
 ## Deployment
 
-The Hall4 Frontend is deployed on Render.com. You can access the live application at [https://crudoperations-k5nc.onrender.com](https://crudoperations-k5nc.onrender.com).
+The webapp is deployed on Render.com. You can access the live application at [https://crudoperations-k5nc.onrender.com](https://crudoperations-k5nc.onrender.com).
 
 
 ## CRUD Operations
