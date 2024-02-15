@@ -187,7 +187,7 @@ const MainPage = () => {
 
         if (isValid) {
             try {
-                const response = await axios.post("http://localhost:5000/api/data/create", {
+                const response = await axios.post("/api/data/create", {
                     productId: productID,
                     productName: productName,
                     toPincode: toPincode,
