@@ -5,8 +5,8 @@ import './App.css';
 // import { useEffect, useState } from 'react';
 import Register from './register';
 import MainPage from './mainpage';
-import Axios from 'Axios';
-Axios.defaults.baseURL = "https://crudoperationsserver.onrender.com";
+import axios from 'axios';
+axios.defaults.baseURL = "https://crudoperationsserver.onrender.com";
 function App() {
   
 
