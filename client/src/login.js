@@ -113,11 +113,7 @@ const Login = (props) => {
         
         <br />
         <div >
-            <input
-                className={"inputButton"}
-                
-                
-                value={"OR"} />
+            <p>OR</p>
         </div>
         <br />
         <div className={"inputContainer"}>
