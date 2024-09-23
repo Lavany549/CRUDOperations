@@ -128,7 +128,7 @@ const Login = (props) => {
             <input
                 className={"inputButton"}
                 type="button"
-                onClick={adminLogin}
+                onClick={guestLogin}
                 value={"Log in as a Guest"} />
         </div>
                     
