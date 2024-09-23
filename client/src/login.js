@@ -14,8 +14,8 @@ const Login = (props) => {
         setPassword("admin@1234");
     }
 
-    // Delay the rest of the login logic until state updates complete
-    setTimeout(async () => {
+    
+    
         // Set initial error values to empty
         setEmailError("");
         setPasswordError("");
@@ -66,7 +66,7 @@ const Login = (props) => {
                 alert("An unexpected error occurred. Please try again later.");
             }
         }
-    }, 0);
+   
 }
 
 
