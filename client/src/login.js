@@ -100,7 +100,7 @@ const Login = (props) => {
             <input
                 className={"inputButton"}
                 type="button"
-                onClick={login}
+                onClick={() => login(false)}
                 value={"Log in"} />
         </div>
         <br />
