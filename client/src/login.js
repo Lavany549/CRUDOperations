@@ -7,74 +7,68 @@ const Login = (props) => {
     const [emailError, setEmailError] = useState("")
     const [passwordError, setPasswordError] = useState("")
 
-    async function login(){
-         // Set initial error values to empty
-         setEmailError("")
-         setPasswordError("")
- 
-         // Check if the user has entered both fields correctly
-         if ("" === email) {
-             setEmailError("Please enter your email")
-             return
-         }
- 
-         if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-             setEmailError("Please enter a valid email")
-             return
-         }
- 
-         if ("" === password) {
-             setPasswordError("Please enter a password")
-             return
-         }
- 
-         if (password.length < 7) {
-             setPasswordError("The password must be 8 characters or longer")
-             return
-         }
-       
-        const user={
-            email,
-            password
+   async function login(isGuest = false) {
+    // Set guest credentials if this is a guest login
+    if (isGuest) {
+        setEmail("admin@gmail.com");
+        setPassword("admin@1234");
+    }
+
+    // Delay the rest of the login logic until state updates complete
+    setTimeout(async () => {
+        // Set initial error values to empty
+        setEmailError("");
+        setPasswordError("");
+
+        // Check if the user has entered both fields correctly
+        if (email === "") {
+            setEmailError("Please enter your email");
+            return;
         }
+
+        if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+            setEmailError("Please enter a valid email");
+            return;
+        }
+
+        if (password === "") {
+            setPasswordError("Please enter a password");
+            return;
+        }
+
+        if (password.length < 7) {
+            setPasswordError("The password must be 8 characters or longer");
+            return;
+        }
+
+        const user = { email, password };
         try {
             const result = await axios.post('/api/users/login', user);
-                   
-            localStorage.setItem('currentUser',JSON.stringify(result));
-            window.location.href='/mainpage'
+            localStorage.setItem('currentUser', JSON.stringify(result));
+            window.location.href = '/mainpage';
         } catch (error) {
             // Handle errors from the server
             if (error.response) {
-                // The request was made, but the server responded with an error status
                 console.error(error.response.data);
                 console.error(error.response.status);
                 console.error(error.response.headers);
-        
-                // Check if the error is due to wrong credentials or non-existent user
+
                 if (error.response.status === 400) {
                     alert("Invalid credentials. Please check your email and password.");
                 } else {
                     alert("An error occurred. Please try again later.");
                 }
             } else if (error.request) {
-                // The request was made, but no response was received
                 console.error(error.request);
                 alert("Error: No response from the server");
             } else {
-                // Something happened in setting up the request that triggered an Error
                 console.error("Error", error.message);
                 alert("An unexpected error occurred. Please try again later.");
             }
         }
-         
+    }, 0);
 }
-    async function guestLogin() {
-    setEmail("admin@gmail.com");
-    setPassword("admin@1234");
-    
-    // Delay the login call until the state is updated
-    setTimeout(() => login(), 0);
-}
+
 
 
     
@@ -128,10 +122,11 @@ const Login = (props) => {
         <br />
         <div className={"inputContainer"}>
             <input
-                className={"inputButton"}
-                type="button"
-                onClick={guestLogin}
-                value={"Log in as a Guest"} />
+            className={"inputButton"}
+            type="button"
+            onClick={() => login(true)}  // Pass true to indicate guest login
+            value={"Log in as a Guest"} />
+
         </div>
                     
     </div>
