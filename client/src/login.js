@@ -66,11 +66,16 @@ const Login = (props) => {
                 alert("An unexpected error occurred. Please try again later.");
             }
         }
-        
          
-   
 }
+    async function guestLogin(){
+        
+        setEmail("admin@gmail.com")
+        setPassword("admin@1234")
+        login()
+    }
 
+    
 
 
   
@@ -109,6 +114,24 @@ const Login = (props) => {
         <div className={"inputContainer"}>
             <div><b>Not a User ?<Link to='/register'> Register</Link></b></div>
         </div>
+        
+        <br />
+        <div className={"inputContainer"}>
+            <input
+                className={"inputButton"}
+                type="text"
+                
+                value={"OR"} />
+        </div>
+        <br />
+        <div className={"inputContainer"}>
+            <input
+                className={"inputButton"}
+                type="button"
+                onClick={adminLogin}
+                value={"Log in as a Guest"} />
+        </div>
+                    
     </div>
 }
 
