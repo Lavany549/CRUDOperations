@@ -112,8 +112,8 @@ const Login = (props) => {
         </div>
         
         <br />
-        <div >
-            <p>OR</p>
+        <div className={"inputContainer"}>
+            <div><b>OR</b></div>
         </div>
         <br />
         <div className={"inputContainer"}>
