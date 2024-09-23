@@ -68,12 +68,14 @@ const Login = (props) => {
         }
          
 }
-    async function guestLogin(){
-        
-        setEmail("admin@gmail.com")
-        setPassword("admin@1234")
-        login()
-    }
+    async function guestLogin() {
+    setEmail("admin@gmail.com");
+    setPassword("admin@1234");
+    
+    // Delay the login call until the state is updated
+    setTimeout(() => login(), 0);
+}
+
 
     
 
@@ -116,10 +118,10 @@ const Login = (props) => {
         </div>
         
         <br />
-        <div className={"inputContainer"}>
+        <div >
             <input
                 className={"inputButton"}
-                type="text"
+                
                 
                 value={"OR"} />
         </div>
