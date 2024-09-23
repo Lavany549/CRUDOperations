@@ -13,9 +13,6 @@ const Login = (props) => {
         setEmail("admin@gmail.com");
         setPassword("admin@1234");
     }
-
-    
-    
         // Set initial error values to empty
         setEmailError("");
         setPasswordError("");
